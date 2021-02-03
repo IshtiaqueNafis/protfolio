@@ -1,6 +1,9 @@
 import csv
 
 from flask import Flask, render_template, request, redirect
+from flask_mail import Mail, Message
+from mailer import Mailer
+from mailer import Message
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'thecodex'
@@ -17,13 +20,14 @@ def html_page(page_name):
 
 
 def write_to_csv(data):  # data is the dictionary that is being passed
-    with open('database.csv', newline="", mode='a') as database:  # this creates a new line
+    with open('database.csv', mode='a+') as database:  # this creates a new line
+        name = data["name"]
         email = data["email"]
         subject = data["subject"]
         message = data["message"]
         csv_writter = csv.writer(database, delimiter=',', quotechar='"',
                                  quoting=csv.QUOTE_MINIMAL)  # constructor for creating csv_writter
-        csv_writter.writerow([email, subject, message])
+        csv_writter.writerow([email, name, subject, message])
 
 
 @app.route('/sent_data', methods=['POST', 'GET'])
