@@ -2,7 +2,6 @@ import csv
 
 from flask import Flask, render_template, request, redirect
 
-
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'thecodex'
 
@@ -15,7 +14,6 @@ def my_home():
 @app.route("/<string:page_name>")
 def html_page(page_name):
     return render_template(page_name)
-    
 
 
 def write_to_csv(data):  # data is the dictionary that is being passed
