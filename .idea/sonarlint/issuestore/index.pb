@@ -17,3 +17,5 @@ F
 	server.py,3\7\37f78d9e69dff05b443a39c32175987bb0cbdccd
 D
 templates/works.html,f\c\fced663ba6aa235903589cbae10f462ef583a5a0
+S
+#.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
